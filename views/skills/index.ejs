@@ -1,0 +1,26 @@
+
+<%- include('../partials/header') %>
+
+<h2>Skill List</h2>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Skill</th>
+      <th>Done</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% skills.forEach(function (s) { %>
+      <tr>
+        <td>
+          <a href ="/skills/<%= s.id %>"><%= s.id %> </a>
+        </td>
+        <td><%= s.skill%></td>
+        <td><%= s.done %></td>
+      </tr>
+    <% }) %> 
+  </tbody>
+</table>
+
+<%- include('../partials/footer') %>
