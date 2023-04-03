@@ -5,10 +5,12 @@ var skillsCtrl = require('../controllers/skills');
 /* GET skills listing. */
 router.get ('/', skillsCtrl.getAll);
 
+router.get ('/new',skillsCtrl.newSkill);
+
 router.get ('/:id', skillsCtrl.getOne);
 
 router.delete('/:id', skillsCtrl.removeOne);
 
-router.get ('/new',skillsCtrl.newSkill);
+router.post('/',skillsCtrl.create)
 
 module.exports = router;

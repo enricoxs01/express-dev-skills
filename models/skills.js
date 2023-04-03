@@ -7,7 +7,8 @@ const skills = [
   module.exports = {
     getAll,
     getOne,
-    removeOne
+    removeOne,
+    create
   };
   
   
@@ -25,5 +26,11 @@ const skills = [
     const idx = skills.findIndex(skill => skill.id === id);
     console.log(idx)
     skills.splice(idx, 1);
+  }
+  
+  function create(skill) {
+    // Add the id
+    skill.id = Date.now() % 1000000;
+    skills.push(skill);
   }
   

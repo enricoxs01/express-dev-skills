@@ -4,17 +4,13 @@ module.exports = {
     getAll,
     getOne,
     removeOne,
-    newSkill
+    newSkill,
+    create
 }
 
 function getAll(req,res) {
     const skills = Skill.getAll()
     res.render('skills/index', {skills})
-}
-
-function newSkill(req,res) {
-    console.log("I am in the new Skill")
-    res.render('skills/new',{})
 }
 
 function getOne(req,res) {
@@ -26,7 +22,16 @@ function getOne(req,res) {
 
 function removeOne(req,res) {
     Skill.removeOne(req.params.id)
-    console.log("HELLLLOOOOOOOOO")
     res.redirect('/skills')
 }
 
+function newSkill(req,res) {
+    console.log("I am in the new Skill")
+    res.render('skills/new',{})
+}
+
+function create(req, res) {
+    Skill.create(req.body);
+    // Always do a redirect when data has been changed
+    res.redirect('/skills');
+  }
