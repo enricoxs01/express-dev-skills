@@ -2,13 +2,19 @@ const Skill = require ('../models/skills')
 
 module.exports = {
     getAll,
-    getOne
+    getOne,
+    removeOne,
+    newSkill
 }
 
 function getAll(req,res) {
     const skills = Skill.getAll()
-    console.log (skills)
     res.render('skills/index', {skills})
+}
+
+function newSkill(req,res) {
+    console.log("I am in the new Skill")
+    res.render('skills/new',{})
 }
 
 function getOne(req,res) {
@@ -17,3 +23,10 @@ function getOne(req,res) {
         aSkill: Skill.getOne(req.params.id)
     })
 }
+
+function removeOne(req,res) {
+    Skill.removeOne(req.params.id)
+    console.log("HELLLLOOOOOOOOO")
+    res.redirect('/skills')
+}
+

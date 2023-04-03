@@ -18,9 +18,21 @@
         </td>
         <td><%= s.skill%></td>
         <td><%= s.done %></td>
+        <td>
+          <form
+          action="/skills/<%= s.id %>?_method=DELETE"
+          method="POST"
+          class="delete-form"
+          >
+          <button type="submit">X</button>
+          </form>
+        </td>
       </tr>
     <% }) %> 
   </tbody>
 </table>
+<br>
+
+<a href="/skills/new"> Add a new skill</a>
 
 <%- include('../partials/footer') %>
